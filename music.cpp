@@ -39,7 +39,7 @@ void siguienteCancion(Cancion *nodoActual);
 void anteriorCancion(Cancion *nodoActual);
 void xmlCancion(int bandera, string linea, Cancion *nuevasEnStore);
 void cargaMasiva(ListaReproduccion *nuevaLista, Cancion *nuevasEnStore);
-
+void reproduccion(Cancion *playlist);
 //void menuOperaCancion(Cancion *Cabeza);
 // TIPO
 string path();
@@ -83,6 +83,7 @@ void menuPrincipal(Cancion *cabeza, ListaReproduccion *listados)
             listados = menuOperaPlaylist(listados, listadosCanciones);
             break;
         case 3:
+            reproduccion(listados->primera);
             break;
         case 4:
             cargaMasiva(listados, listadosCanciones);
@@ -138,7 +139,7 @@ Cancion *menuOperaCancion(Cancion *cabeza)
             cout << "Ingrese el titulo de la cancion que desea buscar: ";
             cin >> nac;
             cancion = buscarCancion(cabeza, nac);
-            if (cancion != nullptr)
+            if (cancion != NULL)
             {
             cout << "TITULO: " << cancion->titulo << "  PATH: " << cancion->path << "  ID: " << cancion->ID << endl;
             }
@@ -170,8 +171,8 @@ void agregarCancion(Cancion *&cabeza, string titulo, string path, int ID)
         nuevaCancion->titulo = titulo;
         nuevaCancion->path = path;
         nuevaCancion->ID = ID;
-        nuevaCancion->siguiente = nullptr;
-        if (cabeza == nullptr)
+        nuevaCancion->siguiente = NULL;
+        if (cabeza == NULL)
         {
             cabeza = nuevaCancion;
             cout << "Cancion Agregada";
@@ -179,7 +180,7 @@ void agregarCancion(Cancion *&cabeza, string titulo, string path, int ID)
         else
         {
             Cancion *actual = cabeza;
-            while (actual->siguiente != nullptr)
+            while (actual->siguiente != NULL)
             {
                 actual = actual->siguiente;
             }
@@ -196,13 +197,13 @@ void agregarCancion(Cancion *&cabeza, string titulo, string path, int ID)
 void eliminarCancion(Cancion *&primero, int numero)
 {
     Cancion *nodoActual = primero;
-    Cancion *nodoAnterior = nullptr;
+    Cancion *nodoAnterior = NULL;
     string titulo;
     if (numero == 1)
     {
         cout << "Ingrese el ID de la cancion que desea eliminar: ";
         cin >> numero;
-        while (nodoActual != nullptr && nodoActual->ID != numero)
+        while (nodoActual != NULL && nodoActual->ID != numero)
         {
             nodoAnterior = nodoActual;
             nodoActual = nodoActual->siguiente;
@@ -212,7 +213,7 @@ void eliminarCancion(Cancion *&primero, int numero)
     {
         cout << "Ingrese el titulo de la cancion que desea eliminar: ";
         cin >> titulo;
-        while (nodoActual != nullptr && nodoActual->titulo != titulo)
+        while (nodoActual != NULL && nodoActual->titulo != titulo)
         {
             nodoAnterior = nodoActual;
             nodoActual = nodoActual->siguiente;
@@ -226,13 +227,13 @@ void eliminarCancion(Cancion *&primero, int numero)
     cin >> opcion;
     if (opcion == 1)
     {
-        if (nodoActual == nullptr)
+        if (nodoActual == NULL)
         {
             cout << "La canción no se encuentra en la lista" << endl;
             return;
         }
 
-        if (nodoAnterior == nullptr)
+        if (nodoAnterior == NULL)
         {
             primero = nodoActual->siguiente;
         }
@@ -246,22 +247,22 @@ void eliminarCancion(Cancion *&primero, int numero)
 }
 void eliminarCancionMasivaid(Cancion *&primero, int id, int numero){
     Cancion *nodoActual = primero;
-    Cancion *nodoAnterior = nullptr;
+    Cancion *nodoAnterior = NULL;
     if (numero == 1){
-        while (nodoActual != nullptr && nodoActual->ID != id)
+        while (nodoActual != NULL && nodoActual->ID != id)
         {
             nodoAnterior = nodoActual;
             nodoActual = nodoActual->siguiente;
         }
     }
 
-        if (nodoActual == nullptr)
+        if (nodoActual == NULL)
         {
             cout << "La canción no se encuentra en la lista" << endl;
             
         }
 
-        if (nodoAnterior == nullptr)
+        if (nodoAnterior == NULL)
         {
             primero = nodoActual->siguiente;
         }
@@ -276,21 +277,21 @@ void eliminarCancionMasivaid(Cancion *&primero, int id, int numero){
 }
 void elimnartitulo(Cancion *&primero, int numero, string titulo){
         Cancion *nodoActual = primero;
-    Cancion *nodoAnterior = nullptr;
+    Cancion *nodoAnterior = NULL;
         if (numero == 2){
-        while (nodoActual != nullptr && nodoActual->titulo != titulo)
+        while (nodoActual != NULL && nodoActual->titulo != titulo)
         {
             nodoAnterior = nodoActual;
             nodoActual = nodoActual->siguiente;
         }
     }
-            if (nodoActual == nullptr)
+            if (nodoActual == NULL)
         {
             cout << "La canción no se encuentra en la lista" << endl;
             
         }
 
-        if (nodoAnterior == nullptr)
+        if (nodoAnterior == NULL)
         {
             primero = nodoActual->siguiente;
         }
@@ -305,7 +306,7 @@ void elimnartitulo(Cancion *&primero, int numero, string titulo){
 void imprimirCanciones(Cancion *cabeza)
 {
     int contador = 0;
-    if (cabeza == nullptr)
+    if (cabeza == NULL)
     {
         cout << "La lista de canciones esta vacia." << endl;
     }
@@ -313,7 +314,7 @@ void imprimirCanciones(Cancion *cabeza)
     {
         cout << "Lista de canciones:" << endl;
         Cancion *actual = cabeza;
-        while (actual != nullptr)
+        while (actual != NULL)
         {
             contador++;
             actual->ID = contador;
@@ -326,7 +327,7 @@ void imprimirCanciones(Cancion *cabeza)
 Cancion *buscarCancion(Cancion *cabeza, string titulo)
 {
     Cancion *actual = cabeza;
-    while (actual != nullptr)
+    while (actual != NULL)
     {
         if (actual->titulo == titulo)
         {
@@ -334,11 +335,11 @@ Cancion *buscarCancion(Cancion *cabeza, string titulo)
         }
         actual = actual->siguiente;
     }
-    return nullptr;
+    return NULL;
 }
 Cancion *buscarCancionlista(Cancion *primero, int id) {
     Cancion *actual = primero;
-    while (actual != nullptr && actual->ID != id) {
+    while (actual != NULL && actual->ID != id) {
         actual = actual->siguiente;
     }
     return actual;
@@ -424,14 +425,14 @@ void crearLista(ListaReproduccion *&listado, string nombre, string descripcion, 
 
     nuevaLista->nombre = nombre;
     nuevaLista->descripcion = descripcion;
-    nuevaLista->siguiente = nullptr;
-    nuevaLista->primera = nullptr;
+    nuevaLista->siguiente = NULL;
+    nuevaLista->primera = NULL;
 
-    if (listado == nullptr){
+    if (listado == NULL){
         listado = nuevaLista;
     }else{
         ListaReproduccion *actual = listado;
-        while (actual->siguiente != nullptr){
+        while (actual->siguiente != NULL){
             actual = actual->siguiente;
         }
         actual->siguiente = nuevaLista;
@@ -453,7 +454,7 @@ void cancionesLista(ListaReproduccion *listaRepro, Cancion *lista){
 
     ListaReproduccion *cambio = listaRepro;
     // Verificar si la lista de reproducción está vacía
-    if (cambio == nullptr){
+    if (cambio == NULL){
         cout << "La lista de reproduccion esta vacia." << endl;
         return;
     }
@@ -461,12 +462,12 @@ void cancionesLista(ListaReproduccion *listaRepro, Cancion *lista){
 
 }
 void eleccionLista(ListaReproduccion *nodoActual, ListaReproduccion *nodoAnterior, int indice){
-        while (nodoActual != nullptr && nodoActual->indice != indice){
+        while (nodoActual != NULL && nodoActual->indice != indice){
             nodoAnterior = nodoActual;
             nodoActual = nodoActual->siguiente;
         }
     
-        if (nodoActual == nullptr)
+        if (nodoActual == NULL)
         {
             cout << "La playlist no se encuentra en la lista" << endl;
             return;
@@ -476,7 +477,7 @@ void eleccionLista(ListaReproduccion *nodoActual, ListaReproduccion *nodoAnterio
 void imprimirLista(ListaReproduccion *lista) {
     int contador = 0;
 
-    if (lista == nullptr)
+    if (lista == NULL)
     {
         cout << "La lista de Reproduccion esta vacia." << endl;
     }
@@ -484,7 +485,7 @@ void imprimirLista(ListaReproduccion *lista) {
     {
         cout << "Lista de Reproduccion:" << endl;
         ListaReproduccion *actual = lista;
-        while (actual != nullptr)
+        while (actual != NULL)
         {
             contador++;
             actual->indice = contador;
@@ -501,12 +502,12 @@ void imprimirLista(ListaReproduccion *lista) {
 // función para eliminar una lista de reproducción
 void eliminarLista(ListaReproduccion *&lista) {
     ListaReproduccion *nodoActual = lista;
-    ListaReproduccion *nodoAnterior = nullptr;
+    ListaReproduccion *nodoAnterior = NULL;
     int indice;
     cout << "Ingrese el ID de la playlist: ";
     cin >> indice;
     eleccionLista(nodoActual, nodoAnterior, indice);
-    if (nodoAnterior == nullptr)
+    if (nodoAnterior == NULL)
     {
         lista = nodoActual->siguiente;
     }
@@ -520,7 +521,7 @@ void eliminarLista(ListaReproduccion *&lista) {
 }
 void actualizarDatos(ListaReproduccion *listado){
         ListaReproduccion *nodoActual = listado;
-        ListaReproduccion *nodoAnterior = nullptr;
+        ListaReproduccion *nodoAnterior = NULL;
         string nombre;
         string descrip;
         int indice;
@@ -542,7 +543,7 @@ void actualizarDatos(ListaReproduccion *listado){
 
 void agregarCancioneAlista(ListaReproduccion *listaRepro, Cancion *lista, int indicador){
         ListaReproduccion *nodoActualLista = listaRepro;
-        ListaReproduccion *nodoAnteriorLista = nullptr;
+        ListaReproduccion *nodoAnteriorLista = NULL;
         int opcion;
         int id = 0;
         if (indicador == 1){
@@ -561,16 +562,16 @@ void agregarCancioneAlista(ListaReproduccion *listaRepro, Cancion *lista, int in
             cout << "Ingrese el ID de la cancion que desea agregar: ";
             cin >> id;
             Cancion *nodoActual = lista;
-            Cancion *nodoAnterior = nullptr;
+            Cancion *nodoAnterior = NULL;
 
             // Buscar la canción en la lista de canciones
-            while (nodoActual != nullptr && nodoActual->ID != id)
+            while (nodoActual != NULL && nodoActual->ID != id)
             {
             nodoAnterior = nodoActual;
             nodoActual = nodoActual->siguiente;
             }
 
-            if (nodoActual == nullptr)
+            if (nodoActual == NULL)
             {
             cout << "No se encontro la cancion con ID " << id << endl;
             continue;
@@ -583,7 +584,7 @@ void agregarCancioneAlista(ListaReproduccion *listaRepro, Cancion *lista, int in
 }
 void eliminarCancionLista(ListaReproduccion *listaRepro){
         ListaReproduccion *nodoActualLista = listaRepro;
-        ListaReproduccion *nodoAnteriorLista = nullptr;
+        ListaReproduccion *nodoAnteriorLista = NULL;
         int id = 0;
         int opcion;
         int indice;
@@ -644,22 +645,25 @@ void reproduccion(Cancion* play){
 }
 
 void siguienteCancion(Cancion *nodoActual){
- 
+        cout << "SIGUIENTE";
     if (nodoActual->siguiente){
         nodoActual = nodoActual->anterior;
+        cout << "reproduccion" << nodoActual ;
         // reproducirCancion(nodoActual);
     }
     
 }
 
 void anteriorCancion(Cancion *nodoActual){
+    cout << "regresando" ;
     if (nodoActual->anterior){
         nodoActual = nodoActual->anterior;
+        cout << "reproduccion" << nodoActual;
         //reproducirCancion(nodoActual);
     }
 }
 void reproducirPlaylist(ListaReproduccion *playlist) {
-    Cancion *primerNodo = nullptr;
+    Cancion *primerNodo = NULL;
     playlist->primera = primerNodo;
     while (playlist->primera) {
         //reproducirCancion(playlist->primera);
@@ -799,8 +803,8 @@ void xmlLista(int bandera, string linea, ListaReproduccion *listados){
 }
 int main()
 {
-    Cancion *cabeza = nullptr;
-    ListaReproduccion *listados = nullptr;
+    Cancion *cabeza = NULL;
+    ListaReproduccion *listados = NULL;
     agregarCancion(cabeza, "Tarzanboy", "5d4", 1);
     agregarCancion(cabeza, "Camisa Negra", "54df", 1);
     agregarCancion(cabeza, "Wake me up", "15fds", 1);

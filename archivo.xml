@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+        <Insertar>
+            <cancion>
+                <Nombre> nombreCancion1 </Nombre>
+                <path> pathCancion </Path>
+                <Pos> 3 </Pos>
+            </cancion>
+            <cancion>
+                <Nombre> nombreCancion2 </Nombre>
+                <path> pathCancion2 </Path>
+            </cancion>
+             <cancion>
+                <Nombre> nombreCandcion3 </Nombre>
+                <path> pathCancidon3 </Path>
+                <Pos> 4 </Pos>
+            </cancion>
+        </Insertar>
+                <Insertar>
+            <cancion>
+                <Nombre> nombreCancion1 </Nombre>
+                <path> pathCancion </Path>
+                <Pos> 3 </Pos>
+            </cancion>
+            <cancion>
+                <Nombre> nombreCancion2 </Nombre>
+                <path> pathCancion2 </Path>
+            </cancion>
+             <cancion>
+                <Nombre> nombreCandcion3 </Nombre>
+                <path> pathCancidon3 </Path>
+                <Pos> 4 </Pos>
+            </cancion>
+        </Insertar>
+        <Insertar>
+   <Lista>
+       <Nombre> nombreCancionlista </Nombre>
+       <Descripcion> pathCancionLISTA </Descripcion>
+   </Lista>
+</Insertar>
+        <Insertar>
+            <cancion>
+                <Nombre> nombreCancion1 </Nombre>
+                <path> pathCancion </Path>
+                <Pos> 3 </Pos>
+            </cancion>
+            <cancion>
+                <Nombre> nombreCancion2 </Nombre>
+                <path> pathCancion2 </Path>
+            </cancion>
+             <cancion>
+                <Nombre> nombreCandcion3 </Nombre>
+                <path> pathCancidon3 </Path>
+                <Pos> 4 </Pos>
+            </cancion>
+        </Insertar>
+ 
+
